@@ -5,7 +5,22 @@ console.log(solicitud)
 var cunNo = document.getElementById("respuestacun:cunNo").innerText;
 console.log("test cun No: " + cunNo);
 
-const correo = {
+emailjs.init("ZQGPwYEpNHDhEDn5GOUk1");
+
+const formData = {
+    cunNo: cunNo,
+    obje: solicitud.obje,
+    fund: solicitud.fund,
+};
+
+emailjs.send("service_z9zjy98", "template_deah36q", formData)
+    .then(function (response) {
+        console.log("Correo enviado exitosamente.");
+    }, function (error) {
+        console.log("Error al enviar correo:");
+    });
+
+/* const correo = {
     from: "noreply@emtel.com.co",
     to: solicitud.mail,
     subject: `Confirmación de CUN: ${cunNo}`,
@@ -33,4 +48,4 @@ fetch('https://api.zeptomail.com/v1.1/email', {
     })
     .catch((error) => {
         console.error('Error al enviar correo:', error);
-    });
+    }); */
