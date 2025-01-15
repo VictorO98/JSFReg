@@ -1,0 +1,46 @@
+.enfasis
+{
+   font-style: arial;
+   font-size: 1.3em;
+}
+
+.colores1
+{
+   font-size: 1.5em;
+   font-style: italic;
+   color: Blue;
+   background: Yellow;
+}
+
+.colores2
+{
+   font-size: 0.8em;
+   font-style: italic;
+   color: Yellow;
+   background: Blue;
+}
+
+.porc1
+{
+   width:22%;
+   text-align : left;
+}
+
+.porc2
+{
+   width:39%;
+   text-align : left;
+}
+
+.tercio
+{
+   width:33%;
+   text-align : left;
+}
+
+.mensajeError
+{
+   font-size: 1.0em;
+   font-style: arial;
+   color: red;
+}

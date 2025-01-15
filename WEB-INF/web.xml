@@ -1,0 +1,69 @@
+<web-app version="2.5"
+   xmlns="http://java.sun.com/xml/ns/javaee"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+   http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+   <display-name>JSFReg</display-name>
+   <description>Simple Registration Application</description>
+
+   <context-param>
+      <param-name>javax.faces.PROJECT_STAGE</param-name>
+      <param-value>Development</param-value>
+   </context-param>
+
+   <context-param>
+      <param-name>DB</param-name>
+      <param-value>Oracle</param-value>
+   </context-param>
+
+   <context-param>
+      <param-name>PTO</param-name>
+      <param-value>1521</param-value>
+   </context-param>
+
+   <context-param>
+      <param-name>HOST</param-name>
+      <param-value>192.168.1.7</param-value>
+   </context-param>
+
+   <context-param>
+      <param-name>SID</param-name>
+      <param-value>openflex</param-value>
+   </context-param>
+
+   <context-param>
+      <param-name>RUTA</param-name>
+      <param-value>D:/CUN</param-value>
+   </context-param>
+
+   <context-param>
+      <param-name>SIZE</param-name>
+      <param-value>2097152</param-value>
+   </context-param>
+
+   <filter>
+      <filter-name>MyFacesExtensionsFilter</filter-name>
+      <filter-class>org.apache.myfaces.webapp.filter.ExtensionsFilter</filter-class>
+   </filter>
+
+   <filter-mapping>
+      <filter-name>MyFacesExtensionsFilter</filter-name>
+      <servlet-name>Faces Servlet</servlet-name>
+   </filter-mapping>
+
+   <servlet>
+      <servlet-name>Faces Servlet</servlet-name>
+      <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+      <load-on-startup>1</load-on-startup>
+   </servlet>
+
+   <servlet-mapping>
+      <servlet-name>Faces Servlet</servlet-name>
+      <url-pattern>/faces/*</url-pattern>
+   </servlet-mapping>
+
+   <welcome-file-list>
+     <welcome-file>faces/index.xhtml</welcome-file>
+   </welcome-file-list>
+</web-app>

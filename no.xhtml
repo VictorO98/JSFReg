@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:t="http://myfaces.apache.org/tomahawk">
+   <f:view>
+      <head>
+         <link href="estilos.css" rel="stylesheet" type="text/css"/>
+<link rel="shortcut icon" href="https://www.emtel.com.co/sites/default/files/logo_0.png" type="image/png" />
+         <title><h:outputText value="Registro NO exitoso"/></title>
+      </head>
+      <body>
+	  <table width="50%" height="50%" border="0" align="center" >
+        <tr>
+		 <td width="30%" height="31"><a href="http://127.0.0.1:8080/registrocun/faces/index.xhtml">
+		  <img src="../imagenes/Reg_usu_2.gif" width="125" height="105"/></a>
+		 </td>
+	     <td width="45%"><a href="http://127.0.0.1:8080/solicitudcun/faces/index.xhtml">
+		  <img src="../imagenes/registrar_cun.gif" width="255" height="95" /></a>
+		 </td>
+         <td width="8%"><a href="http://127.0.0.1:8080/consultacun/faces/index.xhtml">
+		  <img src="../imagenes/consultar_cun.gif" width="125" height="105" /></a>
+		 </td>
+        </tr>
+        <tr>
+         <td height="171" colspan="3">  
+         <h:form>
+            <center>
+               <h:outputText value="No se pudo registrar su solicitud" styleClass="enfasis"/>
+            </center>
+
+            <h:panelGrid cellspacing="10" columns="2">
+               <h:outputText value="No de identificacion"/>
+               <h:outputText value="#{solicitudBean.iden}"/>
+            </h:panelGrid>
+            <h:commandButton value="Volver" action="volver"/>
+         </h:form>
+		 </td>
+        </tr>
+       </table>
+      </body>
+   </f:view>
+   <footer>
+       <div class="brand_footer">
+           <div class="social-footer col-md-6">
+        <a href="https://www.facebook.com/emtel.saesp.10?locale=es_LA" target="_blank">
+            <img src="imagenes/facebook.png"/>
+        </a>
+        <a href="https://www.instagram.com/emtel.sa?igsh=MWs5YXp2cmJ3YTk5bA==" target="_blank">
+            <img src="imagenes/instagram.png"/>
+        </a>
+        <a href="https://twitter.com/emtelpopayan" target="_blank">
+            <img src="imagenes/twitter.png"/>
+        </a>
+        <a href="https://www.youtube.com/channel/UCa0Uhp0IUvQ6GrdF9jPaIrQ" target="_blank">
+            <img src="imagenes/youtube.png"/>            
+        </a>
+    </div>
+    <div class="info col-md-6">
+          <div class="region region-footer">
+    <div id="block-block-2" class="block block-block">
+
+    
+  <div class="content">
+    <p>Empresa de Telecomunicaciones de Popayán, EMTEL SA ESP | Nit 891.502.163-1</p>
+    <span>&#169; Todos los derechos reservados</span>
+    <p>Expert Projects</p>
+  </div>
+</div>
+  </div>
+
+       </div>
+
+           </div>
+  </footer>
+</html>

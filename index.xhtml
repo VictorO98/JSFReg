@@ -1,0 +1,152 @@
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:t="http://myfaces.apache.org/tomahawk">
+
+<f:view>
+
+   <head>
+      <link href="styles/styles.css" rel="stylesheet" type="text/css" />
+      <link rel="shortcut icon" href="https://www.emtel.com.co/sites/default/files/logo_0.png" type="image/png" />
+      <title>
+         <h:outputText value="Registro de solicitud" />
+      </title>
+   </head>
+
+   <body>
+      <header>
+         <div class="brand">
+            <img src="imagenes/logo.png" />
+         </div>
+      </header>
+
+      <table width="80%" height="50%" border="0" align="center">
+         <tr>
+            <td width="30%" height="31"><a href="http://127.0.0.1:8080/registrocun/faces/index.xhtml">
+                  <img src="../imagenes/Reg_usu_2.gif" width="125" height="105" /></a>
+            </td>
+
+            <td width="45%"><a href="http://127.0.0.1:8080/solicitudcun/faces/index.xhtml">
+                  <img src="../imagenes/registrar_cun.gif" width="255" height="95" /></a>
+            </td>
+
+            <td width="8%"><a href="http://127.0.0.1:8080/consultacun/faces/index.xhtml">
+                  <img src="../imagenes/consultar_cun.gif" width="125" height="105" /></a>
+            </td>
+         </tr>
+
+         <tr>
+            <td height="171" colspan="3">
+               <h:form id="solicitudcun" enctype="multipart/form-data">
+                  <center>
+                     <h:outputText value="Registro de solicitud" styleClass="enfasis" />
+                  </center>
+
+                  <h:panelGrid cellspacing="10" columns="3">
+
+                     <h:outputText value="No de documento de identidad" />
+                     <h:inputText id="iden" value="#{solicitudBean.iden}" required="true">
+                        <f:validateLongRange minimum="1" maximum="999999999999999" />
+                        <f:validator validatorId="validarIden" />
+                     </h:inputText>
+                     <h:message for="iden" styleClass="mensajeError" />
+
+                     <h:outputText value="Ingrese Email Notificacion" size="48" />
+                     <h:inputText id="mail" value="" size="60" required="true">
+                        <f:validateLength minimum="3" maximum="60" />
+                        <t:validateEmail />
+                     </h:inputText>
+                     <h:message for="mail" styleClass="mensajeError" />
+
+                     <h:outputText value="Tipo de peticion" />
+                     <h:selectOneMenu id="ticu" value="#{solicitudBean.ticu}">
+                        <f:selectItems value="#{solicitudBean.tipocun}" />
+                     </h:selectOneMenu>
+                     <h:message for="ticu" styleClass="mensajeError" />
+
+                     <h:outputText value="Tipo de queja" />
+                     <h:selectOneMenu id="tiqu" value="#{solicitudBean.tiqu}">
+                        <f:selectItems value="#{solicitudBean.tipoqueja}" />
+                        <f:validator validatorId="validarTiqu" />
+                     </h:selectOneMenu>
+                     <h:message for="tiqu" styleClass="mensajeError" />
+
+                     <h:outputText value="Objeto" />
+                     <h:inputTextarea id="obje" value="#{solicitudBean.obje}" rows="10" cols="40" required="true">
+                        <f:validateLength minimum="10" maximum="4000" />
+                     </h:inputTextarea>
+                     <h:message for="obje" styleClass="mensajeError" />
+
+                     <h:outputText value="Hechos en que se fundamenta la peticion" />
+                     <h:inputTextarea id="fund" value="#{solicitudBean.fund}" rows="10" cols="40" required="true">
+                        <f:validateLength minimum="10" maximum="4000" />
+                     </h:inputTextarea>
+                     <h:message for="fund" styleClass="mensajeError" />
+
+                     <h:outputText value="Anexar archivo" />
+                     <t:inputFileUpload id="fadj" storage="file" size="53" value="#{solicitudBean.fadj}">
+                        <f:validator validatorId="validarFadj" />
+                     </t:inputFileUpload>
+
+                     <h:commandButton value="Adjuntar" disabled="#{solicitudBean.bfadj}"
+                        action="#{solicitudBean.adjuntar}" />
+                     <h:message for="fadj" styleClass="mensajeError" />
+                  </h:panelGrid>
+
+                  <h:panelGrid width="60%" cellspacing="10" columns="3" columnClasses="tercio,tercio,tercio">
+                     <h:outputText value="Digite el codigo de la imagen" />
+                     <h:inputText id="valor" value="#{solicitudBean.valor}" size="20" required="true">
+                        <f:validator validatorId="validarValorImagen" />
+                     </h:inputText>
+                     <h:message for="valor" styleClass="mensajeError" />
+
+                     <h:commandLink value="Genere una nueva imagen" />
+                     <t:captcha captchaSessionKeyName="#{solicitudBean.sessionKeyName}" imageWidth="140"
+                        imageHeight="25" />
+                  </h:panelGrid>
+
+                  <center>
+                     <h:commandButton id="btnEnviar" action="#{solicitudBean.adicionar}" value="Enviar" />
+                  </center>
+               </h:form>
+            </td>
+         </tr>
+      </table>
+      <script src="scripts/save_data.js"></script>
+   </body>
+</f:view>
+<footer>
+   <div class="brand_footer">
+      <div class="social-footer col-md-6">
+         <a href="https://www.facebook.com/emtel.saesp.10?locale=es_LA" target="_blank">
+            <img src="imagenes/facebook.png" />
+         </a>
+         <a href="https://www.instagram.com/emtel.sa?igsh=MWs5YXp2cmJ3YTk5bA==" target="_blank">
+            <img src="imagenes/instagram.png" />
+         </a>
+         <a href="https://twitter.com/emtelpopayan" target="_blank">
+            <img src="imagenes/twitter.png" />
+         </a>
+         <a href="https://www.youtube.com/channel/UCa0Uhp0IUvQ6GrdF9jPaIrQ" target="_blank">
+            <img src="imagenes/youtube.png" />
+         </a>
+      </div>
+      <div class="info col-md-6">
+         <div class="region region-footer">
+            <div id="block-block-2" class="block block-block">
+
+
+               <div class="content">
+                  <p>Empresa de Telecomunicaciones de Popayán, EMTEL SA ESP | Nit 891.502.163-1</p>
+                  <span>&#169; Todos los derechos reservados</span>
+                  <p>Expert Projects</p>
+               </div>
+            </div>
+         </div>
+
+      </div>
+
+   </div>
+</footer>
+
+</html>
