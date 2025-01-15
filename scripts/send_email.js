@@ -9,6 +9,10 @@ emailjs.init("mATPswy5fE-CPFNh4");
 
 const formData = {
     cunNo: cunNo,
+    user_pqr: solicitud.mail,
+    iden: solicitud.iden,
+    ticu: solicitud.ticu,
+    tiqu: solicitud.tiqu,
     obje: solicitud.obje,
     fund: solicitud.fund,
 };
