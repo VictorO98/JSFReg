@@ -5,7 +5,7 @@ console.log(solicitud)
 var cunNo = document.getElementById("respuestacun:cunNo").innerText;
 console.log("test cun No: " + cunNo);
 
-emailjs.init("ZQGPwYEpNHDhEDn5GOUk1");
+emailjs.init("mATPswy5fE-CPFNh4");
 
 const formData = {
     cunNo: cunNo,
