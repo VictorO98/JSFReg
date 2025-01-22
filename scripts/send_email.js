@@ -5,6 +5,7 @@ console.log(solicitud)
 var cunNo = document.getElementById("respuestacun:cunNo").innerText;
 console.log("test cun No: " + cunNo);
 
+/* 
 emailjs.init("mATPswy5fE-CPFNh4");
 
 const formData = {
@@ -23,8 +24,9 @@ emailjs.send("service_z9zjy98", "template_deah36q", formData)
     }, function (error) {
         console.log("Error al enviar correo:");
     });
+*/
 
-/* const correo = {
+const correo = {
     from: "noreply@emtel.com.co",
     to: solicitud.mail,
     subject: `Confirmación de CUN: ${cunNo}`,
@@ -37,7 +39,7 @@ fetch('https://api.zeptomail.com/v1.1/email', {
     headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'Authorization': 'Zoho-enczapikey wSsVR61xrBT5Cfx9nGKlI+86nFRWAV3+Ek4r2FXz6nf1G//HpcdplkTKUwamSvcbF2dtQjdE8rIvzhgHhjsN29QlzQ0FCCiF9mqRe1U4J3x17qnvhDzCX29flxaMJI8Mwg1rmWBiGskm+g=='
+        'Authorization': 'Zoho-enczapikey wSsVR60i8xfxCv0uzzKpIbhpng5QAl7/QEQv2Qb07HauH/3D9cdpwUCcUwKnSKNKFzVuRzcaoO8hmh9W1GJYhox/yl8HDyiF9mqRe1U4J3x17qnvhDzKWG1dlROLJYkOxwtjk2VlEMFu'
     },
     body: JSON.stringify({
         from: { address: correo.from },
@@ -52,4 +54,4 @@ fetch('https://api.zeptomail.com/v1.1/email', {
     })
     .catch((error) => {
         console.error('Error al enviar correo:', error);
-    }); */
+    });
