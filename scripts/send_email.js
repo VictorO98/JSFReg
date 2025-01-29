@@ -32,9 +32,24 @@ const correo = {
     subject: `Confirmación de CUN: ${cunNo}`,
     content: `Estimado usuario,\n\nSu CUN generado es: ${cunNo}\n\nCopia peticion:\n\n${solicitud.obje}\n\n${solicitud.fund}\n\nGracias por su solicitud.`
 };
+fetch('https://api.zeptomail.com/v1.1/email', {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': 'Zoho-enczapikey wSsVR60i8xfxCv0uzzKpIbhpng5QAl7/QEQv2Qb07HauH/3D9cdpwUCcUwKnSKNKFzVuRzcaoO8hmh9W1GJYhox/yl8HDyiF9mqRe1U4J3x17qnvhDzKWG1dlROLJYkOxwtjk2VlEMFu'
+    },
+    body: JSON.stringify({
+        from: { address: correo.from },
+        to: [{ email_address: { address: correo.to } }, { email_address: { address: "servicioalcliente@emtel.com.co" } }],
+        subject: correo.subject,
+        textbody: correo.content
+    })
+})
 
 // Llamada a la API de ZeptoMail
-fetch('https://api.zeptomail.com/v1.1/email', {
+/* fetch('https://api.zeptomail.com/v1.1/email', {
     method: 'POST',
     headers: {
         'Accept': 'application/json',
@@ -54,4 +69,4 @@ fetch('https://api.zeptomail.com/v1.1/email', {
     })
     .catch((error) => {
         console.error('Error al enviar correo:', error);
-    });
+    }); */
