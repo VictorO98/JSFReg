@@ -1,6 +1,5 @@
 let botonEnviar = document.getElementById('solicitudcun:btnEnviar');
 botonEnviar.addEventListener('click', function guardarDatos(event) {
-    console.log("Hizo Click")
     let iden = document.getElementById('solicitudcun:iden').value;
     let mail = document.getElementById('solicitudcun:mail').value;
     let ticu = document.getElementById('solicitudcun:ticu').value;
@@ -12,6 +11,4 @@ botonEnviar.addEventListener('click', function guardarDatos(event) {
     localStorage.setItem('solicitud', JSON.stringify({
         iden, mail, ticu, tiqu, obje, fund
     }));
-    console.log('Datos guardados!');
-    console.log(localStorage.getItem('solicitud'))
 });
