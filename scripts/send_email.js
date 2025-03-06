@@ -2,6 +2,11 @@
 const solicitud = JSON.parse(localStorage.getItem('solicitud'));
 var cunNo = document.getElementById("respuestacun:cunNo").innerText;
 
+// Recuperar la lista de archivos adjuntos
+const archivosAdjuntos = solicitud.archivos || [];
+
+console.log("Archivos adjuntos enviados:", archivosAdjuntos);
+
 // Llamada a la API de ZeptoMail
 fetch('http://192.168.1.15:5000/enviarcorreo', {  // Usa la IP pública o dominio
     method: 'POST',
@@ -20,7 +25,8 @@ fetch('http://192.168.1.15:5000/enviarcorreo', {  // Usa la IP pública o domini
     Tipo de queja: ${solicitud.tiqu}<br><br>
     Objeto:<br>${solicitud.obje}<br><br>
     Hechos:<br>${solicitud.fund}<br><br>
-    Gracias por su solicitud.`
+    Gracias por su solicitud.`,
+        attachments: archivosAdjuntos
     })
 })
     .then(response => response.json())
